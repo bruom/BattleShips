@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 class WaterNode:BSNode {
     
@@ -20,7 +21,20 @@ class WaterNode:BSNode {
         fala = "Água!"
     }
     
-    
+    override func beHit() {
+        let hitAction = SKAction.playSoundFileNamed("Water.mp3", waitForCompletion: false)
+        let waitAction = SKAction.waitForDuration(2)
+        self.runAction(SKAction.sequence([waitAction, hitAction, waitAction]), completion: { () -> Void in
+            let synthesizer = AVSpeechSynthesizer()
+            
+            let utterance = AVSpeechUtterance(string: self.fala)
+            utterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+            utterance.rate = 0.05
+            synthesizer.speakUtterance(utterance)
+            self.gotHit()
+        })
+        
+    }
     
     
 }

@@ -19,4 +19,8 @@ class BSNode:SKSpriteNode {
         fala = "Voce já atirou aqui."
     }
     
+    func beHit(){
+        println("OVERRIDE ME")
+    }
+    
 }

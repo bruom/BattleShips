@@ -27,13 +27,13 @@ class GameScene: SKScene {
         self.addChild(tabuleiro)
         
         self.allAgua()
-        self.colocaNavios(self.sorteiaNavios(3))
+        self.colocaNavios(self.sorteiaNavios(9))
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
         
-        if lastTouch >= 2.5 {
+        if lastTouch >= 4.5 {
             for touch in (touches as! Set<UITouch>) {
                 let location = touch.locationInNode(self)
                 let locationGrid = touch.locationInNode(self.tabuleiro)
@@ -56,14 +56,15 @@ class GameScene: SKScene {
                     synthesizer.speakUtterance(utterance2)
                     
                     
-                    let utterance = AVSpeechUtterance(string: nodinho?.fala)
-                    utterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
-                    utterance.rate = 0.05
-                    synthesizer.speakUtterance(utterance)
                     
+//                    let utterance = AVSpeechUtterance(string: nodinho?.fala)
+//                    utterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+//                    utterance.rate = 0.05
+//                    synthesizer.speakUtterance(utterance)
                     
+                    nodinho!.beHit()
                     
-                    nodinho!.gotHit()
+                    //nodinho!.gotHit()
                 }
                 
                 //}
@@ -138,7 +139,7 @@ class GameScene: SKScene {
 //            let tile:Tile = self.tabuleiro.tileForPos(coord2.firstObject as! Int, y: coord2.lastObject as! Int)!
 //            tile.content?.removeFromParent()
 //            tile.content = ShipNode(texture: SKTexture(imageNamed: "ship"), type: "Crusador", tam: self.tam)
-            self.tabuleiro.updateBSNode(coord2.firstObject as! Int, y: coord2.lastObject as! Int, node: ShipNode(texture: SKTexture(imageNamed: "ship2"), type: "Crusador", tam: self.tam))
+            self.tabuleiro.updateBSNode(coord2.firstObject as! Int, y: coord2.lastObject as! Int, node: ShipNode(texture: SKTexture(imageNamed: "water"), type: "Crusador", tam: self.tam))
             
         }
     }

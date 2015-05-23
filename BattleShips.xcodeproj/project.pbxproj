@@ -22,6 +22,8 @@
 		151922811B0B5F70000AEC28 /* BSNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151922801B0B5F70000AEC28 /* BSNode.swift */; };
 		151922831B0B5F87000AEC28 /* WaterNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151922821B0B5F87000AEC28 /* WaterNode.swift */; };
 		151922851B0B5FD4000AEC28 /* ShipNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151922841B0B5FD4000AEC28 /* ShipNode.swift */; };
+		15D7D3381B11388B00C7AF1E /* Explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 15D7D3371B11388B00C7AF1E /* Explosion.mp3 */; };
+		15D7D33A1B113A6100C7AF1E /* Water.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 15D7D3391B113A6100C7AF1E /* Water.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		151922801B0B5F70000AEC28 /* BSNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSNode.swift; sourceTree = "<group>"; };
 		151922821B0B5F87000AEC28 /* WaterNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterNode.swift; sourceTree = "<group>"; };
 		151922841B0B5FD4000AEC28 /* ShipNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipNode.swift; sourceTree = "<group>"; };
+		15D7D3371B11388B00C7AF1E /* Explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Explosion.mp3; sourceTree = "<group>"; };
+		15D7D3391B113A6100C7AF1E /* Water.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Water.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				151922581B0B5D7E000AEC28 /* GameViewController.swift */,
 				1519225A1B0B5D7E000AEC28 /* Main.storyboard */,
 				1519225D1B0B5D7E000AEC28 /* Images.xcassets */,
+				15D7D3371B11388B00C7AF1E /* Explosion.mp3 */,
+				15D7D3391B113A6100C7AF1E /* Water.mp3 */,
 				1519225F1B0B5D7E000AEC28 /* LaunchScreen.xib */,
 				151922501B0B5D7E000AEC28 /* Supporting Files */,
 				151922801B0B5F70000AEC28 /* BSNode.swift */,
@@ -220,9 +226,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15D7D33A1B113A6100C7AF1E /* Water.mp3 in Resources */,
 				151922611B0B5D7E000AEC28 /* LaunchScreen.xib in Resources */,
 				1519225E1B0B5D7E000AEC28 /* Images.xcassets in Resources */,
 				151922551B0B5D7E000AEC28 /* GameScene.sks in Resources */,
+				15D7D3381B11388B00C7AF1E /* Explosion.mp3 in Resources */,
 				1519225C1B0B5D7E000AEC28 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

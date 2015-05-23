@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 class ShipNode:BSNode {
     
@@ -21,5 +22,21 @@ class ShipNode:BSNode {
         self.size = CGSizeMake(tam, tam)
         self.type = type
         fala = "Acertou um \(type)"
+    }
+    
+    override func beHit() {
+        self.texture = SKTexture(imageNamed: "ship2")
+        let hitAction = SKAction.playSoundFileNamed("Explosion.mp3", waitForCompletion: false)
+        let waitAction = SKAction.waitForDuration(2)
+        self.runAction(SKAction.sequence([waitAction, hitAction, waitAction]), completion: { () -> Void in
+            let synthesizer = AVSpeechSynthesizer()
+            
+            let utterance = AVSpeechUtterance(string: self.fala)
+            utterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+            utterance.rate = 0.05
+            synthesizer.speakUtterance(utterance)
+            self.gotHit()
+        })
+        
     }
 }
