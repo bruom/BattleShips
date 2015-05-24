@@ -20,25 +20,35 @@ class GameScene: SKScene {
     var navios : Int?
     var desistencia = false;
     var vc : GameViewController?
+    var labelTamanho : SKLabelNode!;
 
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        labelTamanho = SKLabelNode();
         if(type == 0){
             tam = CGFloat(70);
             navios = 9;
             tabuleiro = Tabuleiro(x: 6, y: 6, tamanho: tam)
             tabuleiro.position = CGPointMake(self.size.width/2 - tam * 6 / 2, self.size.height * 0.35)
+            labelTamanho.text = "6 x 6"
         } else if (type == 1){
             tam = CGFloat(50);
             navios = 16;
             tabuleiro = Tabuleiro(x: 8, y: 8, tamanho: tam)
             tabuleiro.position = CGPointMake(self.size.width/2 - tam * 8 / 2, self.size.height * 0.35)
+            labelTamanho.text = "8 x 8"
         } else {
             tam = CGFloat(40);
             navios = 25;
             tabuleiro = Tabuleiro(x: 10, y: 10, tamanho: tam)
             tabuleiro.position = CGPointMake(self.size.width/2 - tam * 10 / 2, self.size.height * 0.35)
+            labelTamanho.text = "10 x 10"
         }
+        labelTamanho.fontColor = UIColor.blackColor();
+        labelTamanho.fontSize = CGFloat(36.0);
+        labelTamanho.position = CGPointMake(self.size.width/2, self.size.height*0.95);
+        self.addChild(labelTamanho);
+        
        // tabuleiro = Tabuleiro(x: 8, y: 8, tamanho: tam)
         tabuleiro.name = "tab"
         tabuleiro.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(8*tam, 8*tam))
@@ -106,7 +116,7 @@ class GameScene: SKScene {
                             desistencia = true;
                             let synthesizer = AVSpeechSynthesizer()
                             
-                            let utterance2 = AVSpeechUtterance(string: "Você tem certeza que deseja desistir? Clique novamente na parte inferiror para confirmar.");
+                            let utterance2 = AVSpeechUtterance(string: "Você tem certeza que deseja desistir? Toque novamente na parte inferiror para confirmar.");
                             utterance2.voice = AVSpeechSynthesisVoice(language: "pt-BR")
                             utterance2.rate = 0.1
                             synthesizer.speakUtterance(utterance2)
