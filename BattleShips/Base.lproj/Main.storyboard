@@ -92,6 +92,7 @@
                         <viewControllerLayoutGuide type="bottom" id="cgR-DF-KIP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Tdd-wf-brC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKk-Ko-snw">
@@ -151,6 +152,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="ISH-wr-nOH" kind="show" identifier="Desistiu" id="iX9-sj-A5b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
             </objects>
@@ -162,6 +166,7 @@
         <image name="water" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="iX9-sj-A5b"/>
         <segue reference="TYw-a4-r3K"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,27 +14,30 @@ class GameScene: SKScene {
     var prevUpdate:Double = 0.0
     var lastTouch:Double = 10.0
     var tabuleiro:Tabuleiro!
+    var desistir: SKSpriteNode!
     var tam:CGFloat = CGFloat(50)
     var type : Int?
     var navios : Int?
-    
+    var desistencia = false;
+    var vc : GameViewController?
+
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         if(type == 0){
             tam = CGFloat(70);
             navios = 9;
             tabuleiro = Tabuleiro(x: 6, y: 6, tamanho: tam)
-            tabuleiro.position = CGPointMake(self.size.width/2 - tam * 6 / 2, self.size.height * 0.18)
+            tabuleiro.position = CGPointMake(self.size.width/2 - tam * 6 / 2, self.size.height * 0.35)
         } else if (type == 1){
             tam = CGFloat(50);
             navios = 16;
             tabuleiro = Tabuleiro(x: 8, y: 8, tamanho: tam)
-            tabuleiro.position = CGPointMake(self.size.width/2 - tam * 8 / 2, self.size.height * 0.18)
+            tabuleiro.position = CGPointMake(self.size.width/2 - tam * 8 / 2, self.size.height * 0.35)
         } else {
             tam = CGFloat(40);
             navios = 25;
             tabuleiro = Tabuleiro(x: 10, y: 10, tamanho: tam)
-            tabuleiro.position = CGPointMake(self.size.width/2 - tam * 10 / 2, self.size.height * 0.18)
+            tabuleiro.position = CGPointMake(self.size.width/2 - tam * 10 / 2, self.size.height * 0.35)
         }
        // tabuleiro = Tabuleiro(x: 8, y: 8, tamanho: tam)
         tabuleiro.name = "tab"
@@ -45,6 +48,17 @@ class GameScene: SKScene {
         
         self.allAgua()
         self.colocaNavios(self.sorteiaNavios(navios!))
+        
+        //desistir = SKSpriteNode(texture: SKTexture(imageNamed: "DesistirIHC"));
+        //desistir = SKSpriteNode(texture: SKTexture(imageNamed: "DesistirIHC"), size: 80);
+        desistir = SKSpriteNode(imageNamed: "DesistirIHC.png");
+        desistir.size = CGSizeMake(self.size.width * 0.70, self.size.height * 0.10);
+        //desistir.frame.size = CGSizeMake(width: self.size.width, height: self.size.height * 0.10);
+        desistir.name = "desistir";
+        desistir.physicsBody = SKPhysicsBody(rectangleOfSize: desistir.size);
+        desistir.physicsBody?.dynamic = false
+        desistir.position = CGPointMake(self.size.width / 2, self.size.height * 0.05);
+        self.addChild(desistir);
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
@@ -54,48 +68,64 @@ class GameScene: SKScene {
             for touch in (touches as! Set<UITouch>) {
                 let location = touch.locationInNode(self)
                 let locationGrid = touch.locationInNode(self.tabuleiro)
-                
-                //if let body = physicsWorld.bodyAtPoint(location) {
-                //if body.node!.name == "tab" {
-                
-                //buscando a letra pela posição do toque na grid, e nao no bodyAtPoint
-                if let tilezinha = self.tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y){
+                if let body = physicsWorld.bodyAtPoint(location) {
+                    if body.node!.name == "tab" {
+                        //if let body = physicsWorld.bodyAtPoint(location) {
+                        //if body.node!.name == "tab" {
+                        
+                        //buscando a letra pela posição do toque na grid, e nao no bodyAtPoint
+                        if let tilezinha = self.tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y){
+                            
+                            self.lastTouch = 0.0
+                            
+                            tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y)!.content?.alpha = 0.5
+                            let nodinho = tilezinha.content
+                            let synthesizer = AVSpeechSynthesizer()
+                            
+                            let utterance2 = AVSpeechUtterance(string: falaSLQ(tilezinha.x, y: tilezinha.y));
+                            utterance2.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+                            utterance2.rate = 0.1
+                            synthesizer.speakUtterance(utterance2)
+                            
+                            
+                            
+                            //                    let utterance = AVSpeechUtterance(string: nodinho?.fala)
+                            //                    utterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+                            //                    utterance.rate = 0.05
+                            //                    synthesizer.speakUtterance(utterance)
+                            
+                            nodinho!.beHit()
+                            desistencia = false;
+                        }
+                        //nodinho!.gotHit()
+                    } else if (body.node?.name == "desistir"){
+                        if(desistencia){
+                            self.vc!.performSegueWithIdentifier("Desistiu", sender: nil);
+                            
+                        } else {
+                            desistencia = true;
+                            let synthesizer = AVSpeechSynthesizer()
+                            
+                            let utterance2 = AVSpeechUtterance(string: "Você tem certeza que deseja desistir? Clique novamente na parte inferiror para confirmar.");
+                            utterance2.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+                            utterance2.rate = 0.1
+                            synthesizer.speakUtterance(utterance2)
+                        }
+                    }
                     
-                    self.lastTouch = 0.0
-                    
-                    tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y)!.content?.alpha = 0.5
-                    let nodinho = tilezinha.content
-                    let synthesizer = AVSpeechSynthesizer()
-                    
-                    let utterance2 = AVSpeechUtterance(string: falaSLQ(tilezinha.x, y: tilezinha.y));
-                    utterance2.voice = AVSpeechSynthesisVoice(language: "pt-BR")
-                    utterance2.rate = 0.1
-                    synthesizer.speakUtterance(utterance2)
-                    
-                    
-                    
-//                    let utterance = AVSpeechUtterance(string: nodinho?.fala)
-//                    utterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
-//                    utterance.rate = 0.05
-//                    synthesizer.speakUtterance(utterance)
-                    
-                    nodinho!.beHit()
-                    
-                    //nodinho!.gotHit()
+                    //}
+                    //}
                 }
                 
-                //}
-                //}
             }
             
+            
+            //        let synthesizer = AVSpeechSynthesizer()
+            //        let utterance = AVSpeechUtterance(string: "Água")
+            //        utterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+            //        utterance.rate = 0.05
+            //        synthesizer.speakUtterance(utterance)
         }
-
-        
-//        let synthesizer = AVSpeechSynthesizer()
-//        let utterance = AVSpeechUtterance(string: "Água")
-//        utterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
-//        utterance.rate = 0.05
-//        synthesizer.speakUtterance(utterance)
     }
     
     func falaSLQ(x: Int, y: Int) -> String{

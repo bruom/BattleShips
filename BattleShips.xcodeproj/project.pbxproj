@@ -26,6 +26,7 @@
 		15D7D33A1B113A6100C7AF1E /* Water.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 15D7D3391B113A6100C7AF1E /* Water.mp3 */; };
 		4E93A2DB1B11440F00434326 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E93A2DA1B11440F00434326 /* SelectViewController.swift */; };
 		4E93A2DD1B1145A200434326 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E93A2DC1B1145A200434326 /* ConfirmViewController.swift */; };
+		4E93A2E31B12890500434326 /* DesistirIHC.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E93A2E21B12890500434326 /* DesistirIHC.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		15D7D3391B113A6100C7AF1E /* Water.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Water.mp3; sourceTree = "<group>"; };
 		4E93A2DA1B11440F00434326 /* SelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		4E93A2DC1B1145A200434326 /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
+		4E93A2E21B12890500434326 /* DesistirIHC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DesistirIHC.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		1519224F1B0B5D7E000AEC28 /* BattleShips */ = {
 			isa = PBXGroup;
 			children = (
+				4E93A2E21B12890500434326 /* DesistirIHC.png */,
 				151922771B0B5DBC000AEC28 /* Tabuleiro.swift */,
 				151922781B0B5DBC000AEC28 /* Matriz.swift */,
 				151922791B0B5DBC000AEC28 /* Tile.swift */,
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15D7D33A1B113A6100C7AF1E /* Water.mp3 in Resources */,
+				4E93A2E31B12890500434326 /* DesistirIHC.png in Resources */,
 				151922611B0B5D7E000AEC28 /* LaunchScreen.xib in Resources */,
 				1519225E1B0B5D7E000AEC28 /* Images.xcassets in Resources */,
 				151922551B0B5D7E000AEC28 /* GameScene.sks in Resources */,
