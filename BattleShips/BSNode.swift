@@ -10,7 +10,7 @@ import SpriteKit
 
 class BSNode:SKSpriteNode {
     
-    var wasHit:Bool!
+    var wasHit:Bool! = false;
     
     var fala:String!
     

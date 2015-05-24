@@ -26,6 +26,8 @@ extension SKNode {
 }
 
 class GameViewController: UIViewController {
+    
+    var gameType:Int = 0 //0 6x6, 1 8x8, 2 10x10
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,8 @@ class GameViewController: UIViewController {
             let skView = self.view as! SKView
             skView.showsFPS = true
             skView.showsNodeCount = true
-            
+            //skView.showsPhysics = true;
+            scene.type = gameType;
             /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true
             

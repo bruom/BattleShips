@@ -36,5 +36,26 @@ class WaterNode:BSNode {
         
     }
     
+//    override func beHit() {
+//        let synthesizer = AVSpeechSynthesizer()
+//        
+//        let utterance = AVSpeechUtterance(string: self.fala)
+//        utterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+//        utterance.rate = 0.05
+//        if (!wasHit){
+//            let hitAction = SKAction.playSoundFileNamed("Water.mp3", waitForCompletion: false)
+//            let waitAction = SKAction.waitForDuration(2)
+//            self.runAction(SKAction.sequence([waitAction, hitAction, waitAction]), completion: { () -> Void in
+//                synthesizer.speakUtterance(utterance)
+//                self.gotHit()
+//            })
+//        } else {
+//            synthesizer.speakUtterance(utterance)
+//        }
+//        
+//        
+//        
+//    }
+    
     
 }

@@ -14,26 +14,43 @@ class GameScene: SKScene {
     var prevUpdate:Double = 0.0
     var lastTouch:Double = 10.0
     var tabuleiro:Tabuleiro!
-    var tam:CGFloat = CGFloat(60)
+    var tam:CGFloat = CGFloat(50)
+    var type : Int?
+    var navios : Int?
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        
-        tabuleiro = Tabuleiro(x: 8, y: 8, tamanho: tam)
+        if(type == 0){
+            tam = CGFloat(70);
+            navios = 9;
+            tabuleiro = Tabuleiro(x: 6, y: 6, tamanho: tam)
+            tabuleiro.position = CGPointMake(self.size.width/2 - tam * 6 / 2, self.size.height * 0.18)
+        } else if (type == 1){
+            tam = CGFloat(50);
+            navios = 16;
+            tabuleiro = Tabuleiro(x: 8, y: 8, tamanho: tam)
+            tabuleiro.position = CGPointMake(self.size.width/2 - tam * 8 / 2, self.size.height * 0.18)
+        } else {
+            tam = CGFloat(40);
+            navios = 25;
+            tabuleiro = Tabuleiro(x: 10, y: 10, tamanho: tam)
+            tabuleiro.position = CGPointMake(self.size.width/2 - tam * 10 / 2, self.size.height * 0.18)
+        }
+       // tabuleiro = Tabuleiro(x: 8, y: 8, tamanho: tam)
         tabuleiro.name = "tab"
         tabuleiro.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(8*tam, 8*tam))
         tabuleiro.physicsBody?.dynamic = false
-        tabuleiro.position = CGPointMake(self.size.width/2 - tam * 8 / 2, self.size.height * 0.18)
+//        tabuleiro.position = CGPointMake(self.size.width/2 - tam * 8 / 2, self.size.height * 0.18)
         self.addChild(tabuleiro)
         
         self.allAgua()
-        self.colocaNavios(self.sorteiaNavios(9))
+        self.colocaNavios(self.sorteiaNavios(navios!))
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
         
-        if lastTouch >= 4.5 {
+        if lastTouch >= 6.0 {
             for touch in (touches as! Set<UITouch>) {
                 let location = touch.locationInNode(self)
                 let locationGrid = touch.locationInNode(self.tabuleiro)
@@ -50,7 +67,7 @@ class GameScene: SKScene {
                     let nodinho = tilezinha.content
                     let synthesizer = AVSpeechSynthesizer()
                     
-                    let utterance2 = AVSpeechUtterance(string: "\(tilezinha.x), \(tilezinha.y)")
+                    let utterance2 = AVSpeechUtterance(string: falaSLQ(tilezinha.x, y: tilezinha.y));
                     utterance2.voice = AVSpeechSynthesisVoice(language: "pt-BR")
                     utterance2.rate = 0.1
                     synthesizer.speakUtterance(utterance2)
@@ -79,6 +96,11 @@ class GameScene: SKScene {
 //        utterance.voice = AVSpeechSynthesisVoice(language: "pt-BR")
 //        utterance.rate = 0.05
 //        synthesizer.speakUtterance(utterance)
+    }
+    
+    func falaSLQ(x: Int, y: Int) -> String{
+        let posX = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+        return "\(posX[x]), \(y + 1)"
     }
    
     override func update(currentTime: CFTimeInterval) {

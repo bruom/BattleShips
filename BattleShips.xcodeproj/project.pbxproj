@@ -24,6 +24,8 @@
 		151922851B0B5FD4000AEC28 /* ShipNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151922841B0B5FD4000AEC28 /* ShipNode.swift */; };
 		15D7D3381B11388B00C7AF1E /* Explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 15D7D3371B11388B00C7AF1E /* Explosion.mp3 */; };
 		15D7D33A1B113A6100C7AF1E /* Water.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 15D7D3391B113A6100C7AF1E /* Water.mp3 */; };
+		4E93A2DB1B11440F00434326 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E93A2DA1B11440F00434326 /* SelectViewController.swift */; };
+		4E93A2DD1B1145A200434326 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E93A2DC1B1145A200434326 /* ConfirmViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		151922841B0B5FD4000AEC28 /* ShipNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipNode.swift; sourceTree = "<group>"; };
 		15D7D3371B11388B00C7AF1E /* Explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Explosion.mp3; sourceTree = "<group>"; };
 		15D7D3391B113A6100C7AF1E /* Water.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Water.mp3; sourceTree = "<group>"; };
+		4E93A2DA1B11440F00434326 /* SelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
+		4E93A2DC1B1145A200434326 /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,8 @@
 				151922801B0B5F70000AEC28 /* BSNode.swift */,
 				151922821B0B5F87000AEC28 /* WaterNode.swift */,
 				151922841B0B5FD4000AEC28 /* ShipNode.swift */,
+				4E93A2DA1B11440F00434326 /* SelectViewController.swift */,
+				4E93A2DC1B1145A200434326 /* ConfirmViewController.swift */,
 			);
 			path = BattleShips;
 			sourceTree = "<group>";
@@ -249,6 +255,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E93A2DD1B1145A200434326 /* ConfirmViewController.swift in Sources */,
+				4E93A2DB1B11440F00434326 /* SelectViewController.swift in Sources */,
 				151922851B0B5FD4000AEC28 /* ShipNode.swift in Sources */,
 				1519227B1B0B5DBC000AEC28 /* Tabuleiro.swift in Sources */,
 				151922811B0B5F70000AEC28 /* BSNode.swift in Sources */,
