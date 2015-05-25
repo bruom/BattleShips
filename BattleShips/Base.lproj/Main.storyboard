@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ISH-wr-nOH">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -17,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zg0-UO-euN">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zg0-UO-euN">
                                 <rect key="frame" x="288" y="285" width="34" height="30"/>
                                 <color key="backgroundColor" red="0.1734273030477344" green="0.76384943181818188" blue="0.15543590722826287" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -134,12 +135,12 @@
                                 <exclude reference="zjr-HQ-HL8"/>
                                 <exclude reference="BpF-7Z-0wW"/>
                                 <exclude reference="GZJ-aM-4BD"/>
-                                <exclude reference="Uht-rm-Ub8"/>
-                                <exclude reference="w5Z-36-hJ9"/>
-                                <exclude reference="wJz-zL-bXS"/>
                                 <exclude reference="62a-QN-aqc"/>
                                 <exclude reference="CRs-i2-xCa"/>
                                 <exclude reference="zhW-nJ-P6L"/>
+                                <exclude reference="Uht-rm-Ub8"/>
+                                <exclude reference="w5Z-36-hJ9"/>
+                                <exclude reference="wJz-zL-bXS"/>
                                 <exclude reference="rRi-mp-tah"/>
                             </mask>
                         </variation>
@@ -154,12 +155,12 @@
                                 <include reference="zjr-HQ-HL8"/>
                                 <include reference="BpF-7Z-0wW"/>
                                 <include reference="GZJ-aM-4BD"/>
-                                <include reference="Uht-rm-Ub8"/>
-                                <include reference="w5Z-36-hJ9"/>
-                                <include reference="wJz-zL-bXS"/>
                                 <include reference="62a-QN-aqc"/>
                                 <include reference="CRs-i2-xCa"/>
                                 <include reference="zhW-nJ-P6L"/>
+                                <include reference="Uht-rm-Ub8"/>
+                                <include reference="w5Z-36-hJ9"/>
+                                <include reference="wJz-zL-bXS"/>
                                 <include reference="rRi-mp-tah"/>
                             </mask>
                         </variation>
@@ -262,16 +263,16 @@
                                 <exclude reference="eMi-PH-5GY"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="HXz-wi-Dtt"/>
                                 <exclude reference="dst-06-olC"/>
                                 <exclude reference="vDE-po-bEr"/>
+                                <exclude reference="E14-GQ-IlS"/>
+                                <exclude reference="mFj-k2-UvK"/>
+                                <exclude reference="wZ0-hj-Y17"/>
                                 <exclude reference="4Qq-ci-zGk"/>
                                 <exclude reference="UXJ-Gp-xce"/>
                                 <exclude reference="ZFw-hX-4du"/>
                                 <exclude reference="sKU-1p-wQo"/>
-                                <exclude reference="E14-GQ-IlS"/>
-                                <exclude reference="mFj-k2-UvK"/>
-                                <exclude reference="wZ0-hj-Y17"/>
-                                <exclude reference="HXz-wi-Dtt"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -281,16 +282,16 @@
                                 <include reference="eMi-PH-5GY"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="HXz-wi-Dtt"/>
                                 <include reference="dst-06-olC"/>
                                 <include reference="vDE-po-bEr"/>
+                                <include reference="E14-GQ-IlS"/>
+                                <include reference="mFj-k2-UvK"/>
+                                <include reference="wZ0-hj-Y17"/>
                                 <exclude reference="4Qq-ci-zGk"/>
                                 <include reference="UXJ-Gp-xce"/>
                                 <include reference="ZFw-hX-4du"/>
                                 <exclude reference="sKU-1p-wQo"/>
-                                <include reference="E14-GQ-IlS"/>
-                                <include reference="mFj-k2-UvK"/>
-                                <include reference="wZ0-hj-Y17"/>
-                                <include reference="HXz-wi-Dtt"/>
                             </mask>
                         </variation>
                     </view>
