@@ -42,6 +42,11 @@ class ConfirmViewController: UIViewController {
     @IBAction func go(sender: AnyObject) {
         let gameView = self.storyboard?.instantiateViewControllerWithIdentifier("gameView") as! GameViewController
         gameView.gameType = possibleTam!
+        let synthesizer = AVSpeechSynthesizer()
+        let utterance2 = AVSpeechUtterance(string: "O jogo começou. Selecione uma casa para atirar, ou clique no botão inferior para retornar ao menu principal.");
+        utterance2.voice = AVSpeechSynthesisVoice(language: "pt-BR")
+        utterance2.rate = 0.1
+        synthesizer.speakUtterance(utterance2)
         self.presentViewController(gameView, animated: true, completion: nil)
     }
     /*

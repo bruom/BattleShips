@@ -15,7 +15,7 @@ class SelectViewController: UIViewController {
         super.viewDidLoad()
         let synthesizer = AVSpeechSynthesizer()
         
-        let utterance2 = AVSpeechUtterance(string: "Selecione o tamanho do tabuleiro");
+        let utterance2 = AVSpeechUtterance(string: "Selecione o tamanho do tabuleiro entre três opções:");
         utterance2.voice = AVSpeechSynthesisVoice(language: "pt-BR")
         utterance2.rate = 0.1
         synthesizer.speakUtterance(utterance2)
